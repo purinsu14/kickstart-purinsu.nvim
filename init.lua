@@ -689,7 +689,7 @@ do
     clangd = {},
     -- gopls = {},
     basedpyright = {},
-    rust_analyzer = {},
+    -- rust_analyzer = {},
     vtsls = {},
     --
     -- Some languages (like typescript) have entire language plugins that can be useful:
