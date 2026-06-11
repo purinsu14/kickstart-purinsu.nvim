@@ -9,7 +9,7 @@ local dap = require('dap')
 local dapui = require('dapui')
 
 dapui.setup()
-require('nvim-dap-virtual-text').setup()
+require('nvim-dap-virtual-text').setup({ enabled = true })
 
 -- Auto open/close UI with debug session
 dap.listeners.before.attach.dapui_config = function() dapui.open() end
