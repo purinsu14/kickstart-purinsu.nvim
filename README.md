@@ -20,6 +20,7 @@ Config path by OS:
 | Windows (cmd) | `%localappdata%\nvim\` |
 | Windows (PowerShell) | `$env:LOCALAPPDATA\nvim\` |
 
+
 ### Homebrew (Linux / Windows via WSL)
 
 Works on Ubuntu, Fedora/uBlue, Arch — anything with Homebrew.
@@ -85,6 +86,21 @@ nvim
 - Check plugin state: `:lua vim.pack.update(nil, { offline = true })`
 
 Read through `init.lua` for configuration notes and plugin examples.
+
+> **_NOTE:_**  If wanna code rust do:
+
+```sh
+rustup component add rustfmt --toolchain stable
+mkdir -p ~/.config/rustfmt
+touch ~/.config/rustfmt/.rustfmt.toml
+```
+
+then add this to toml:
+
+```toml
+imports_granularity = "Crate"
+group_imports = "StdExternalCrate"
+```
 
 **I want a multi-file config layout.**
 See [kickstart-modular.nvim](https://github.com/dam9000/kickstart-modular.nvim).
