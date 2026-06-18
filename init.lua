@@ -196,7 +196,7 @@ do
     -- Can switch between these as you prefer
     virtual_text = true, -- Text shows up at the end of the line
     virtual_lines = false, -- Text shows up underneath the line, with virtual lines
-    signs = true,        -- This puts an error/warning icon in the gutter
+    signs = true, -- This puts an error/warning icon in the gutter
     -- Auto open the float, so you can easily read the errors when jumping with `[d` and `]d`
     jump = {
       on_jump = function(_, bufnr)
