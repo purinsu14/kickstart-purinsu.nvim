@@ -92,7 +92,7 @@ Read through `init.lua` for configuration notes and plugin examples.
 ```sh
 rustup component add rustfmt --toolchain stable
 mkdir -p ~/.config/rustfmt
-touch ~/.config/rustfmt/.rustfmt.toml
+touch ~/.config/rustfmt/rustfmt.toml
 ```
 
 then add this to toml:
