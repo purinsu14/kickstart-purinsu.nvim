@@ -1,19 +1,19 @@
+-- rustaceanvim.lua
 vim.pack.add {
-  { src = 'https://github.com/mrcjkb/rustaceanvim' },
+  {
+    src = 'https://github.com/mrcjkb/rustaceanvim',
+    -- To avoid being surprised by breaking changes,
+    -- I recommend you set a version range
+    version = vim.version.range '^9',
+  },
 }
 
--- rustaceanvim manages rust-analyzer automatically.
 vim.g.rustaceanvim = {
   tools = {},
   server = {
     on_attach = function(_, bufnr)
-      -- Hover actions
       vim.keymap.set('n', '<leader>rh', function() vim.cmd.RustLsp('hover', 'actions') end, { buffer = bufnr, desc = '[R]ust: [H]over actions' })
-
-      -- Expand macro under cursor
       vim.keymap.set('n', '<leader>rm', function() vim.cmd.RustLsp 'expandMacro' end, { buffer = bufnr, desc = '[R]ust: Expand [M]acro' })
-
-      -- Run nearest test
       vim.keymap.set('n', '<leader>rt', function() vim.cmd.RustLsp 'runnables' end, { buffer = bufnr, desc = '[R]ust: [R]unnables' })
     end,
   },
@@ -28,14 +28,3 @@ vim.g.rustaceanvim = {
     },
   },
 }
-
--- Run rustfmt on save
-vim.api.nvim_create_autocmd('BufWritePre', {
-  pattern = '*.rs',
-  callback = function()
-    vim.lsp.buf.code_action {
-      context = { only = { 'source.fixAll' } },
-      apply = true,
-    }
-  end,
-})
